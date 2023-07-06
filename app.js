@@ -2,6 +2,7 @@ const pe = require("./processExcel");
 const pg= require("./processGroupUsers");
 const px = require("./processXML");
 const vbd = require("./validateBusinessDomain");
+const cr = require("./countRecords");
 
 const groupUserFilePath = "./GroupUsers_2023_04_28.txt";
 const excelFilePath1 = "./LDAP_PROD_BusinessUsersMappings.xlsx";
@@ -9,12 +10,14 @@ const excelFilePath ="./LDAP_Prod_2023_04_21.xls"
 const xmlFilePath = "./ibm-application-bnd.xml";
 const sheetName ="Export";
 const hpdbUsersSheetNames =["AHHRDBRLcolUser","AHHRDBRLcolAdm","AHHRDBRLbusLead","AHHRDBRLbusAdm"];
+const filePath = "";
 
 const app = async () =>{
     try{
         //processBusinessMappingSheet(xmlFilePath,excelFilePath,sheetName);
         //processHpdbUserSheet(hpdbUsersSheetNames);
-        await processHpdbUserOrganization();
+        //await processHpdbUserOrganization();
+        cr.readFile(filePath);
     }catch(e){
         console.log(e);
     }
